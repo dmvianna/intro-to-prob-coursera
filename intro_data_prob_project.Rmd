@@ -1,0 +1,91 @@
+---
+title: "Exploring the BRFSS data"
+output: 
+  html_document: 
+    fig_height: 4
+    highlight: pygments
+    theme: spacelab
+---
+
+## Setup
+
+### Load packages
+
+```{r load-packages, message = FALSE}
+library(ggplot2)
+library(dplyr)
+```
+
+### Load data
+
+Make sure your data and R Markdown files are in the same directory. When loaded
+your data file will be called `brfss2013`. Delete this note when before you submit 
+your work. 
+
+```{r load-data}
+load("brfss2013.RData")
+```
+
+
+
+* * *
+
+## Part 1: Data
+#### (3 points) Describe how the observations in the sample are collected, and the implications of this data collection method on the scope of inference (generalizability / causality).
+
+The **data collection** is split between landlines and mobile numbers.
+
+For *mobile numbers*: starting from a database of telephone exchanges, further divided by area codes and 1000-number blocks, the population count of existing mobile numbers is divided by the desired sample size, within each block/area code/exchange in a state. This is done to create intervals within each area code/exchange, from which one telephone number is drawn randomly.
+
+For *landlines*: The area codes are split in 100-number blocks. These blocks are then classified as either high- or medium-density according to the number of household telephone lines found within it. Blocks are grouped according to being high- or medium-density and then randomly sampled separately.   
+
+**limitations for generalizability**
+
+I can't help but find some similarities with the [Literary Digest Poll](https://en.wikipedia.org/wiki/The_Literary_Digest#Presidential_poll) procedure. This survey is based on convenience sampling of telephone owners. Moreover, nonresponse is high and response rates are different between landline and mobile phone users (49.6% and 37.8% for the year being studied). Would busier people be less likely to participate? Would retirees be more willing? Would a person who owns both a landline and a mobile phone be more likely to be sampled than another who only has a mobile or a landline?
+
+I believe the answer would be yes. While random sampling was part of the methodology, this does not fix the problems with the original frame (telephone owners) and the response bias (people who are willing to spend time answering questions about their private life to strangers). And I did not find details in the documentation explaining how this sample could be corrected so that its results could be extended to the general population. 
+
+**limitations for causality**
+
+Causality is best served than generalizability in that we expect responders within each strata to be comparable. Because they were randomly selected from each population (mobile/landline) and strata (high-/medium-density), we expect that systematic differences  will not be due to confounders introduced by the sampling procedure itself. People who exercise might have better health than people who do not, and if so, this will be due to the exercise/health causal pathway, and not due to some unexpected common cause like "number-ends-with-0 leads to exercise" and "number-ends-with-0 leads to health". However, comparisons accross strata are could still be affected. It is possible that "landline owners" leads to exercise through living in farms, and "mobile owners" leads to health by living in inner city. So when addressing causal relationships, strata would have to be controlled. 
+
+* * *
+
+## Part 2: Research questions
+
+**Research quesion 1:**
+
+**Research quesion 2:**
+
+**Research quesion 3:**
+
+
+* * *
+
+## Part 3: Exploratory data analysis
+
+NOTE: Insert code chunks as needed by clicking on the "Insert a new code chunk" 
+button (green button with orange arrow) above. Make sure that your code is visible
+in the project you submit. Delete this note when before you submit your work.
+
+**Research quesion 1:**
+
+```{r}
+
+```
+
+
+
+**Research quesion 2:**
+
+```{r}
+
+```
+
+
+
+**Research quesion 3:**
+
+```{r}
+
+```
